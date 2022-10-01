@@ -18,35 +18,25 @@ import math
 
 
 def formatNum(n):
-    if n == 0:
-        return "00"
-    elif n < 10:
+    if n < 10:
         return f"0{n}"
     else:
         return str(n)
 
 
 def formatTime(li):
-    fArr = []
+    t = ""
     for i in li:
-        fArr.append(formatNum(i))
-    return f"{fArr[0]}:{fArr[1]}:{fArr[2]}"
+        t += f"{formatNum(i)}:"
+    return t[:-1]
 
 
 def humanReadableTime(sec):
-    min = 0
-    hr = 0
-    if sec > 59:
-        min = math.floor(sec / 60)
-        sec = sec % 60
-        if min > 59:
-            hr = math.floor(min / 60)
-            min = min % 60
-            return formatTime([hr, min, sec])
-        else:
-            return formatTime([hr, min, sec])
-    else:
-        return formatTime([hr, min, sec])
+    min = math.floor(sec / 60)
+    sec = sec % 60
+    hr = math.floor(min / 60)
+    min = min % 60
+    print(formatTime([hr, min, sec]))
 
 
 humanReadableTime(0)
