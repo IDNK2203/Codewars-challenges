@@ -1,3 +1,6 @@
+# solution Timedout
+
+
 def find_it(seq):
     histo = {}
     for i in seq:
